@@ -24,6 +24,6 @@ phases:
       - echo writing images definitions file...
       - printf '[{"name": "simple-app","imageUrl": "%s"}]'
         $REPOSITORY_URL:$IMAGE_TAG > imagedefinitions.json
-      - cat imagedefinition.json
+      - cat imagedefinitions.json
 artifacts:
-  files: imagedefinition.json
+  files: imagedefinitions.json
