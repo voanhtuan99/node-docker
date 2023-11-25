@@ -1,0 +1,22 @@
+version 2.0
+
+phases:
+  pre_build:
+    commands:
+      - echo Connecting to amazon ECR
+      - aws --version
+      - $(aws ecr get-login $AWS_DEFAULT_REGION --no-include-email)
+      - REPOSITORY_URL=081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo
+      - COMMIT_HASH=$(echo $CODEBUILD_RESOLVE_SOURCE_VERSION | cut -c 1-7)
+      - IMAGE_TAG=build-$(echo CODEBUILD_BUILD_ID | awk -F":" '(print $2)')
+  build:
+    commands:
+      - echo Build started on 'date'
+      - echo pushing the Docker images...      
+      - docker build -t $REPOSITORY_URL:lastest
+      - echo writing images definitions file...
+      - printf '[{"name": "simple-app","imageUrl": "%s"}]'
+        $REPOSITORY_URL:$IMAGE_TAG > imagedefinitions.json
+      - cat imagedefinition.json
+artifacts:
+  files: imagedefinition.json
