@@ -17,13 +17,13 @@ phases:
       - docker tag $REPOSITORY_URL:lastest $REPOSITORY_URL=$IMAGE_TAG
   post_build:
     commands:
-      - echo Build started on 'date'
-      - echo pushing the Docker images...
-      - docker push $REPOSITORY_URL:lastest
-      - docker push $REPOSITORY_URL:$IMAGE_TAG
-      - echo writing images definitions file...
-      - printf '[{"name": "simple-app","imageUrl": "%s"}]'
-        $REPOSITORY_URL:$IMAGE_TAG > imagedefinitions.json
-      - cat imagedefinitions.json
+      # - echo Build started on 'date'
+      # - echo pushing the Docker images...
+      # - docker push $REPOSITORY_URL:lastest
+      # - docker push $REPOSITORY_URL:$IMAGE_TAG
+      # - echo writing images definitions file...
+      # - printf '[{"name": "simple-app","imageUrl": "%s"}]'
+      #   $REPOSITORY_URL:$IMAGE_TAG > imagedefinitions.json
+      # - cat imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
