@@ -13,7 +13,7 @@ phases:
     commands:
       - echo Build started on 'date'
       - echo pushing the Docker images...
-      - docker build -t 081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo:lastest .
+      - docker build -t 081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo .
       - docker tag demo:latest 081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo:latest
   # post_build:
   #   commands:
