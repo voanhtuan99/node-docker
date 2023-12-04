@@ -20,7 +20,7 @@ phases:
       - echo Build completed on 'date'
       - echo Pushing the Docker images...
       - docker push 081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo:latest
-      - docker push 081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo
+      # - docker push 081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo
       # - echo Writing image definitions file...
       # - printf '[{"name": "simple-app","imageUrl": "%s"}]'
       - cat imagedefinitions.json
