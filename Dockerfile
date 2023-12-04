@@ -1,8 +1,8 @@
 FROM node:18
 
-WORKDIR /app
+WORKDIR index.js
 
-COPY package*.json, /app
+COPY package.json, package-lock.json, index.js
 
 run npm install
 
