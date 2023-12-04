@@ -1,12 +1,12 @@
 FROM node:18
 
-WORKDIR /app/
+WORKDIR /usr/src/app
 
-COPY package*.json, /app
+COPY package*.json, ./
 
 run yarn install
 
-COPY . .
+COPY ./index.js ./
 
 EXPOSE 3000
 
