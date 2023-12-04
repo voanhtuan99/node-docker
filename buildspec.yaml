@@ -23,7 +23,5 @@ phases:
       - docker push 081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo
       - echo writing images definitions file...
       - printf '[{"name": "simple-app","imageUrl": "%s"}]'
-       081941699876.dkr.ecr.ap-southeast-1.amazonaws.com/demo > imagedefinitions.json
-      - cat imagedefinitions.json
 artifacts:
   files: imagedefinitions.json
